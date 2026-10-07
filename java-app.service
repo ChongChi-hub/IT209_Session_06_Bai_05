@@ -1,0 +1,18 @@
+[Unit]
+Description=Java Spring Boot Application Service
+After=network.target
+
+[Service]
+# Chay duoi quyen tai khoan non-root (da duoc tao truoc do bang useradd)
+User=java-runner
+Group=java-runner
+
+# Duong dan lenh chay app (vi du gia lap dung sleep)
+ExecStart=/usr/bin/sleep 1000
+
+# Tu dong khoi dong lai neu ung dung bi sap (crash)
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
